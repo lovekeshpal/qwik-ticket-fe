@@ -1,3 +1,42 @@
-<p>user-login works!</p>
-<!-- Design user login page -->
- <!-- Create one user-register -->
+<div
+  class="container d-flex justify-content-center align-items-center min-vh-100"
+>
+  <div class="card shadow p-4" style="width: 400px; border-radius: 15px">
+    <h4 class="card-title text-center mb-4 text-primary">User Sign In</h4>
+    <form>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"
+          >Email address</label
+        >
+        <input
+          type="email"
+          class="form-control"
+          id="exampleFormControlInput1"
+          placeholder="name@example.com"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="inputPassword5" class="form-label">Password</label>
+        <input
+          type="password"
+          id="inputPassword5"
+          class="form-control"
+          aria-describedby="passwordHelpBlock"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-primary w-100 rounded-pill">
+        Sign In
+      </button>
+    </form>
+    <div class="text-center mt-3">
+      <a href="#" class="text-decoration-none">Forgot your password?</a>
+    </div>
+    <div class="text-center mt-3">
+      <a href="/user-register" class="text-decoration-none"
+        ><span style="color: black;">New here?</span> Sign Up</a
+      >
+    </div>
+  </div>
+</div>
