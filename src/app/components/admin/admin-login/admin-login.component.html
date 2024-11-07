@@ -3,27 +3,28 @@
 >
   <div class="card shadow p-4" style="width: 400px; border-radius: 15px">
     <h4 class="card-title text-center mb-4 text-primary">Admin Sign In</h4>
-    <form>
+    <!-- Form for Admin Login -->
+    <form [formGroup]="adminLoginForm" (ngSubmit)="onSubmit()">
       <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label"
+        <label for="email" class="form-label"
           >Email address</label
         >
         <input
           type="email"
           class="form-control"
-          id="exampleFormControlInput1"
-          placeholder="name@example.com"
-          required
+          id="email"
+          formControlName="email"
+          placeholder="Enter your email"
         />
       </div>
       <div class="mb-3">
-        <label for="inputPassword5" class="form-label">Password</label>
+        <label for="password" class="form-label">Password</label>
         <input
           type="password"
-          id="inputPassword5"
+          id="password"
           class="form-control"
           aria-describedby="passwordHelpBlock"
-          required
+          formControlName="password"
         />
       </div>
       <button type="submit" class="btn btn-primary w-100 rounded-pill">
