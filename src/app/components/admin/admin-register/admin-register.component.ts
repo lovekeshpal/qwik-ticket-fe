@@ -28,8 +28,8 @@ export class AdminRegisterComponent {
   onSubmit(): void {
     if (this.adminRegisterForm.valid) {
       console.log(this.adminRegisterForm.value);
-      // this.adminLoginForm.reset();
       this.adminRegisterForm.get('password')?.setValue('');
+
       // API call
     } else {
       console.log('Form is not valid');

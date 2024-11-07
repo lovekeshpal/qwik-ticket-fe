@@ -4,15 +4,17 @@ import { AdminRegisterComponent } from './components/admin/admin-register/admin-
 import { UserLoginComponent } from './components/user/user-login/user-login.component';
 import { UserRegisterComponent } from './components/user/user-register/user-register.component';
 import { HomeComponent } from './components/home/home.component';
+import { AdminForgotpasswordComponent } from './components/admin/admin-forgotpassword/admin-forgotpassword.component';
 
 export const routes: Routes = [
-    {path: '', redirectTo: 'home', pathMatch: 'full'},
-    // home
-    { path: 'home', component: HomeComponent },
-    // admin routes
-    { path: 'admin-login', component: AdminLoginComponent },
-    { path: 'admin-register', component: AdminRegisterComponent },
-    // user routes
-    { path: 'user-login', component: UserLoginComponent },
-    { path: 'user-register', component: UserRegisterComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  // home
+  { path: 'home', component: HomeComponent },
+  // admin routes
+  { path: 'admin-login', component: AdminLoginComponent },
+  { path: 'admin-register', component: AdminRegisterComponent },
+  { path: 'admin-forgotpassword', component: AdminForgotpasswordComponent },
+  // user routes
+  { path: 'user-login', component: UserLoginComponent },
+  { path: 'user-register', component: UserRegisterComponent },
 ];
