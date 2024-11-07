@@ -6,9 +6,7 @@
     <!-- Form for Admin Login -->
     <form [formGroup]="adminLoginForm" (ngSubmit)="onSubmit()">
       <div class="mb-3">
-        <label for="email" class="form-label"
-          >Email address</label
-        >
+        <label for="email" class="form-label">Email address</label>
         <input
           type="email"
           class="form-control"
@@ -32,11 +30,13 @@
       </button>
     </form>
     <div class="text-center mt-3">
-      <a href="#" class="text-decoration-none">Forgot your password?</a>
+      <a href="/admin-forgotpassword" class="text-decoration-none"
+        >Forgot your password?</a
+      >
     </div>
     <div class="text-center mt-3">
       <a href="/admin-register" class="text-decoration-none"
-        ><span style="color: black;">New here?</span> Sign Up</a
+        ><span style="color: black">New here?</span> Sign Up</a
       >
     </div>
   </div>

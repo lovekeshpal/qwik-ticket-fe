@@ -3,15 +3,15 @@
 >
   <div class="card shadow p-4" style="width: 400px; border-radius: 15px">
     <h4 class="card-title text-center mb-4 text-primary">Admin Registration</h4>
-    <form>
+    <form [formGroup]="adminRegisterForm" (ngSubmit)="onSubmit()">
       <div class="mb-3">
         <label for="name" class="form-label">Name</label>
         <input
           type="text"
           class="form-control"
           id="name"
+          formControlName="name"
           placeholder="Enter your name"
-          required
         />
       </div>
       <div class="mb-3">
@@ -20,8 +20,8 @@
           type="email"
           class="form-control"
           id="email"
+          formControlName="email"
           placeholder="name@example.com"
-          required
         />
       </div>
       <div class="mb-3">
@@ -31,7 +31,7 @@
           id="password"
           class="form-control"
           placeholder="Enter your password"
-          required
+          formControlName="password"
         />
       </div>
       <div class="mb-3">
@@ -41,7 +41,7 @@
           id="confirmPassword"
           class="form-control"
           placeholder="Confirm your password"
-          required
+          formControlName="confirmPassword"
         />
       </div>
       <button type="submit" class="btn btn-primary w-100 rounded-pill">
