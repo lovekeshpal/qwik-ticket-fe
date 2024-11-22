@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -8,25 +7,11 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-//https://fakestoreapi.com/products
+
 export class HomeComponent {
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    this.fetchProducts();
-  }
+  ngOnInit(): void {}
 
-  fetchProducts(): void {
-    this.http.get('https://fakestoreapi.com/products').subscribe({
-      next: (response) => {
-        console.log(response);
-      },
-      error(err) {
-        console.error('Error: ' + err);
-      },
-      complete() {
-        console.log('Completed');
-      },
-    });
-  }
 }
+
