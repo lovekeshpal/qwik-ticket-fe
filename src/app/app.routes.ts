@@ -5,6 +5,7 @@ import { UserLoginComponent } from './components/user/user-login/user-login.comp
 import { UserRegisterComponent } from './components/user/user-register/user-register.component';
 import { HomeComponent } from './components/home/home.component';
 import { AdminForgotpasswordComponent } from './components/admin/admin-forgotpassword/admin-forgotpassword.component';
+import { UserEventsComponent } from './components/user/user-events/user-events.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -17,4 +18,5 @@ export const routes: Routes = [
   // user routes
   { path: 'user-login', component: UserLoginComponent },
   { path: 'user-register', component: UserRegisterComponent },
+  { path: 'user-events', component: UserEventsComponent },
 ];
