@@ -1,0 +1,173 @@
+<div
+  class="container d-flex justify-content-center align-items-center min-vh-100"
+>
+  <form
+    class="container p-4 bg-light rounded"
+    [formGroup]="eventForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <!-- Event Name and Private Event -->
+    <div class="row mb-3">
+      <div class="col-md-8">
+        <label for="eventName" class="form-label">Event Name:</label>
+        <input
+          id="eventName"
+          class="form-control"
+          formControlName="eventName"
+          placeholder="Event Name"
+        />
+      </div>
+      <div class="col-md-4 d-flex align-items-center">
+        <div class="form-check form-switch">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            formControlName="isPrivate"
+          />
+          <label class="form-check-label ms-2" for="isPrivate"
+            >Private Event</label
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Image and Venues -->
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="heroImage" class="form-label">Hero Image:</label>
+        <input
+          type="file"
+          class="form-control"
+          id="heroImage"
+          formControlName="heroImage"
+        />
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Venues:</label>
+        <div class="d-flex">
+          <input
+            class="form-control me-2"
+            formControlName="venues"
+            placeholder="Venue Name"
+          />
+          <button type="button" class="btn btn-primary btn-sm">
+            Add Venue
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Date & Time -->
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="startTime" class="form-label">Start Date & Time:</label>
+        <input
+          type="datetime-local"
+          class="form-control"
+          id="startTime"
+          formControlName="startTime"
+        />
+      </div>
+      <div class="col-md-6">
+        <label for="endTime" class="form-label">End Date & Time:</label>
+        <input
+          type="datetime-local"
+          class="form-control"
+          id="endTime"
+          formControlName="endTime"
+        />
+      </div>
+    </div>
+
+    <!-- Enable Segments -->
+    <div class="form-check mb-3">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        formControlName="hasSegments"
+      />
+      <label class="form-check-label" for="hasSegments">Enable Segments</label>
+    </div>
+    <div id="segments" class="border p-3 rounded mb-3">
+      <div class="mb-3">
+        <input
+          class="form-control mb-2"
+          formControlName="segments"
+          placeholder="Segment Name"
+        />
+        <input
+          type="datetime-local"
+          class="form-control mb-2"
+          formControlName="segments"
+        />
+        <input
+          type="datetime-local"
+          class="form-control mb-2"
+          formControlName="segments"
+        />
+        <button type="button" class="btn btn-danger btn-sm px-3 py-2 me-2">
+          Remove Segment
+        </button>
+        <button type="button" class="btn btn-primary btn-sm px-3 py-2">
+          Add Segment
+        </button>
+      </div>
+    </div>
+
+    <!-- Tickets & Price -->
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="tickets" class="form-label">Tickets Available:</label>
+        <input
+          type="number"
+          class="form-control"
+          formControlName="ticketsAvailable"
+          placeholder="Tickets Available"
+        />
+      </div>
+      <div class="col-md-6">
+        <label for="price" class="form-label">Price per Ticket:</label>
+        <input
+          type="number"
+          class="form-control"
+          formControlName="ticketPrice"
+          placeholder="Price per Ticket"
+        />
+      </div>
+    </div>
+
+    <!-- Parking Details -->
+    <div class="form-check mb-3">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        formControlName="isParkingAvailable"
+      />
+      <label class="form-check-label" for="isParkingAvailable"
+        >Parking Available</label
+      >
+    </div>
+    <div id="parkingDetails" class="border p-3 rounded mb-3 d-flex">
+      <div class="mb-3 me-3 col-md-6">
+        <label class="form-label">Two-Wheeler Parking:</label>
+        <input
+          type="number"
+          class="form-control"
+          formControlName="twoWheelerParking"
+          placeholder="Count"
+        />
+      </div>
+      <div class="mb-3 me-3 col-md-6">
+        <label class="form-label">Four-Wheeler Parking:</label>
+        <input
+          type="number"
+          class="form-control"
+          formControlName="fourWheelerParking"
+          placeholder="Count"
+        />
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success">Book Ticket</button>
+  </form>
+</div>
