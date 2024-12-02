@@ -1,15 +1,33 @@
-<div class="container d-flex justify-content-center align-items-center min-vh-100">
-  <form class="container p-4 bg-light rounded" [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+<div
+  class="container d-flex justify-content-center align-items-center min-vh-100"
+>
+  <form
+    class="container p-4 bg-light rounded"
+    [formGroup]="eventForm"
+    (ngSubmit)="onSubmit()"
+  >
     <!-- Event Name and Private Event -->
     <div class="row mb-3">
       <div class="col-md-8">
         <label for="eventName" class="form-label">Event Name:</label>
-        <input id="eventName" class="form-control" formControlName="eventName" placeholder="Event Name" />
+        <input
+          id="eventName"
+          class="form-control"
+          formControlName="eventName"
+          placeholder="Event Name"
+        />
       </div>
       <div class="col-md-4 d-flex align-items-center">
         <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" formControlName="isPrivate" role="button" />
-          <label class="form-check-label ms-2" for="isPrivate">Private Event</label>
+          <input
+            class="form-check-input"
+            type="checkbox"
+            formControlName="isPrivate"
+            role="button"
+          />
+          <label class="form-check-label ms-2" for="isPrivate"
+            >Private Event</label
+          >
         </div>
       </div>
     </div>
@@ -18,7 +36,12 @@
     <div class="row mb-3">
       <div class="col-md-6">
         <label for="heroImage" class="form-label">Hero Image:</label>
-        <input type="file" class="form-control" id="heroImage" formControlName="heroImage" />
+        <input
+          type="file"
+          class="form-control"
+          id="heroImage"
+          formControlName="heroImage"
+        />
       </div>
       <div class="col-md-6">
         <div class="row">
@@ -29,13 +52,24 @@
         <div class="row">
           <div class="col">
             <div formArrayName="venues">
-              <div *ngFor="let venue of venues.controls; let i = index" class="mb-2">
+              <div
+                *ngFor="let venue of venues.controls; let i = index"
+                class="mb-2"
+              >
                 <div class="row">
                   <div class="col-10">
-                    <input class="form-control me-2" [formControlName]="i" placeholder="Venue Name" />
+                    <input
+                      class="form-control me-2"
+                      [formControlName]="i"
+                      placeholder="Venue Name"
+                    />
                   </div>
                   <div class="col-2">
-                    <i class="bi bi-trash-fill" role="button" (click)="removeVenue(i)"></i>
+                    <i
+                      class="bi bi-trash-fill"
+                      role="button"
+                      (click)="removeVenue(i)"
+                    ></i>
                   </div>
                 </div>
               </div>
@@ -43,7 +77,11 @@
           </div>
         </div>
 
-        <button type="button" class="btn btn-primary btn-sm" (click)="addVenue()">
+        <button
+          type="button"
+          class="btn btn-primary btn-sm"
+          (click)="addVenue()"
+        >
           Add Venue
         </button>
       </div>
@@ -53,30 +91,73 @@
     <div class="row mb-3">
       <div class="col-md-6">
         <label for="startTime" class="form-label">Start Date & Time:</label>
-        <input type="datetime-local" class="form-control" id="startTime" formControlName="startTime" />
+        <input
+          type="datetime-local"
+          class="form-control"
+          id="startTime"
+          formControlName="startTime"
+        />
       </div>
       <div class="col-md-6">
         <label for="endTime" class="form-label">End Date & Time:</label>
-        <input type="datetime-local" class="form-control" id="endTime" formControlName="endTime" />
+        <input
+          type="datetime-local"
+          class="form-control"
+          id="endTime"
+          formControlName="endTime"
+        />
       </div>
     </div>
 
     <!-- Enable Segments -->
     <div class="form-check mb-3">
-      <input class="form-check-input" type="checkbox" formControlName="hasSegments" role="button" />
+      <input
+        class="form-check-input"
+        type="checkbox"
+        formControlName="hasSegments"
+        role="button"
+      />
       <label class="form-check-label" for="hasSegments">Enable Segments</label>
     </div>
-    <div id="segments" class="border p-3 rounded mb-3">
-      <div class="mb-3">
-        <input class="form-control mb-2" formControlName="segments" placeholder="Segment Name" />
-        <input type="datetime-local" class="form-control mb-2" formControlName="segments" />
-        <input type="datetime-local" class="form-control mb-2" formControlName="segments" />
-        <button type="button" class="btn btn-danger btn-sm px-3 py-2 me-2">
-          Remove Segment
-        </button>
-        <button type="button" class="btn btn-primary btn-sm px-3 py-2">
-          Add Segment
-        </button>
+
+    <div id="segments" class="border p-3 rounded mb-3" formArrayName="segments">
+      <div
+        *ngFor="let segment of segments.controls; let i = index"
+        [formGroupName]="i"
+        class="mb-3"
+      >
+        <input
+          class="form-control mb-2"
+          formControlName="segmentName"
+          placeholder="Segment Name"
+        />
+        <input
+          type="datetime-local"
+          class="form-control mb-2"
+          formControlName="startDateTime"
+        />
+        <input
+          type="datetime-local"
+          class="form-control mb-2"
+          formControlName="endDateTime"
+        />
+        <div class="d-flex justify-content-end align-items-center">
+          <button
+            type="button"
+            class="btn btn-danger btn-sm me-2"
+            (click)="removeSegment(i)"
+          >
+            Remove
+          </button>
+          <button
+            *ngIf="i === segments.length - 1"
+            type="button"
+            class="btn btn-primary btn-sm"
+            (click)="addSegment()"
+          >
+            Add
+          </button>
+        </div>
       </div>
     </div>
 
@@ -84,27 +165,53 @@
     <div class="row mb-3">
       <div class="col-md-6">
         <label for="tickets" class="form-label">Tickets Available:</label>
-        <input type="number" class="form-control" formControlName="ticketsAvailable" placeholder="Tickets Available" />
+        <input
+          type="number"
+          class="form-control"
+          formControlName="ticketsAvailable"
+          placeholder="Tickets Available"
+        />
       </div>
       <div class="col-md-6">
         <label for="price" class="form-label">Price per Ticket:</label>
-        <input type="number" class="form-control" formControlName="ticketPrice" placeholder="Price per Ticket" />
+        <input
+          type="number"
+          class="form-control"
+          formControlName="ticketPrice"
+          placeholder="Price per Ticket"
+        />
       </div>
     </div>
 
     <!-- Parking Details -->
     <div class="form-check mb-3">
-      <input class="form-check-input" type="checkbox" formControlName="isParkingAvailable" />
-      <label class="form-check-label" for="isParkingAvailable">Parking Available</label>
+      <input
+        class="form-check-input"
+        type="checkbox"
+        formControlName="isParkingAvailable"
+      />
+      <label class="form-check-label" for="isParkingAvailable"
+        >Parking Available</label
+      >
     </div>
     <div id="parkingDetails" class="border p-3 rounded mb-3 d-flex">
       <div class="mb-3 me-3 col-md-6">
         <label class="form-label">Two-Wheeler Parking:</label>
-        <input type="number" class="form-control" formControlName="twoWheelerParking" placeholder="Count" />
+        <input
+          type="number"
+          class="form-control"
+          formControlName="twoWheelerParking"
+          placeholder="Count"
+        />
       </div>
       <div class="mb-3 me-3 col-md-6">
         <label class="form-label">Four-Wheeler Parking:</label>
-        <input type="number" class="form-control" formControlName="fourWheelerParking" placeholder="Count" />
+        <input
+          type="number"
+          class="form-control"
+          formControlName="fourWheelerParking"
+          placeholder="Count"
+        />
       </div>
     </div>
 

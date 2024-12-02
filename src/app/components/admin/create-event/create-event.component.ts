@@ -66,4 +66,20 @@ export class CreateEventComponent {
   removeVenue(index: number): void {
     this.venues.removeAt(index);
   }
+
+  get segments(): FormArray {
+    return this.eventForm.get('segments') as FormArray;
+  }
+  addSegment(): void {
+    const segmentGroup = this.formBuilder.group({
+      segmentName: ['', Validators.required],
+      startDateTime: ['', Validators.required],
+      endDateTime: ['', Validators.required],
+    });
+    this.segments.push(segmentGroup);
+  }
+
+  removeSegment(index: number): void {
+    this.segments.removeAt(index);
+  }
 }
