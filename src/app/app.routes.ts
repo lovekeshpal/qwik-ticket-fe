@@ -8,6 +8,7 @@ import { AdminForgotpasswordComponent } from './components/admin/admin-forgotpas
 import { UserEventsComponent } from './components/user/user-events/user-events.component';
 import { CreateEventComponent } from './components/admin/create-event/create-event.component';
 
+
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   // home

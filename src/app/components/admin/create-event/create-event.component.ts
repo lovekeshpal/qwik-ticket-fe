@@ -9,6 +9,7 @@ import {
   FormControl,
 } from '@angular/forms';
 
+
 @Component({
   selector: 'app-create-event',
   standalone: true,
@@ -83,3 +84,4 @@ export class CreateEventComponent {
     this.segments.removeAt(index);
   }
 }
+
