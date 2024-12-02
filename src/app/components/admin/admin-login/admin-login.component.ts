@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-admin-login',
@@ -9,23 +14,23 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
   styleUrl: './admin-login.component.scss',
 })
 export class AdminLoginComponent {
-  adminLoginForm!: FormGroup; 
+  adminLoginForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder){
+  constructor(private formBuilder: FormBuilder) {
     this.adminLoginForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]], 
-      password: ['', Validators.required]
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
     });
   }
 
   onSubmit(): void {
-    if(this.adminLoginForm.valid){
+    if (this.adminLoginForm.valid) {
       console.log(this.adminLoginForm.value);
-      // this.adminLoginForm.reset(); 
-      this.adminLoginForm.get('password')?.setValue('')
-      // API call 
+      // this.adminLoginForm.reset();
+      this.adminLoginForm.get('password')?.setValue('');
+      // API call
     } else {
-      console.log('Form is not valid')
+      console.log('Form is not valid');
     }
   }
 }

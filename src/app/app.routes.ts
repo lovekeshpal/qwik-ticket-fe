@@ -6,6 +6,8 @@ import { UserRegisterComponent } from './components/user/user-register/user-regi
 import { HomeComponent } from './components/home/home.component';
 import { AdminForgotpasswordComponent } from './components/admin/admin-forgotpassword/admin-forgotpassword.component';
 import { UserEventsComponent } from './components/user/user-events/user-events.component';
+import { CreateEventComponent } from './components/admin/create-event/create-event.component';
+
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -15,6 +17,7 @@ export const routes: Routes = [
   { path: 'admin-login', component: AdminLoginComponent },
   { path: 'admin-register', component: AdminRegisterComponent },
   { path: 'admin-forgotpassword', component: AdminForgotpasswordComponent },
+  { path: 'create-event', component: CreateEventComponent },
   // user routes
   { path: 'user-login', component: UserLoginComponent },
   { path: 'user-register', component: UserRegisterComponent },
